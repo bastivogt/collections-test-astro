@@ -1,0 +1,13 @@
+---
+import {NAV} from "./../constants";
+
+const navMeta = NAV.filter((item) => item.type === "META");
+---
+
+<footer>
+    <ul>
+        {navMeta.map((item) => (
+            <li><a href={item.href}>{item.name}</a></li>
+        ))}
+    </ul>
+</footer>

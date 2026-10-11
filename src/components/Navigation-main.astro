@@ -1,0 +1,14 @@
+---
+import { NAV } from "./../constants";
+
+
+const navMain = NAV.filter((item) => item.type === "MAIN");
+console.log(navMain);
+---
+<h1>Navigation Main</h1>
+
+<ul>
+	{navMain.map((item) => (
+		<li><a href={item.href}>{item.name}</a></li>
+	))}
+</ul>

@@ -1,0 +1,21 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';  
+import { getFormattedDate } from '../../utils.ts';
+
+export async function getStaticPaths() {
+  const members = await getCollection('members');
+  return members.map(member => ({
+    params: { id: member.id },
+    props: { member },
+  }));
+}
+
+const { member } = Astro.props;
+---
+
+<Layout title={member.data.name} description={`Details for ${member.data.name}`}>
+  <h1>{member.data.name}</h1>
+  <p>Birthday: {getFormattedDate(new Date(member.data.birthday))}</p>
+  <p><a href="/members">Back to Members</a></p>
+</Layout>

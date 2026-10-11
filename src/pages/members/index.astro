@@ -1,0 +1,20 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+import { getCollection } from 'astro:content';
+
+const members = await getCollection('members');
+
+console.log(members);
+---
+
+<Layout title="Members" description="A list of all members">
+    <h1>Members</h1>
+    <ul>
+        {members.map((member) => (
+            <li>
+                <a href={`/members/${member.id}`}>{member.data.name}</a>
+            </li>
+        ))}
+    </ul>
+</Layout>
