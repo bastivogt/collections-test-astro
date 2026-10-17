@@ -7,12 +7,15 @@ const posts = await getCollection('posts');
 console.log(posts);
 ---
 <Layout title="Posts" description="A list of all posts">
-    <h1>Posts</h1>
-    <ul>
-        {posts.map((post) => (
-            <li>
-                <a href={`/posts/${post.id}`}>{post.data.title} ({getFormattedDate(new Date(post.data.date))})</a>
-            </li>
-        ))}
-    </ul>
+    <h1 class="text-4xl font-bold">Posts</h1>
+    <div class="card">
+        <ul>
+            {posts.map((post) => (
+                <li>
+                    <a href={`/posts/${post.id}`}>{post.data.title} ({getFormattedDate(new Date(post.data.date))})</a>
+                </li>
+            ))}
+        </ul>
+
+    </div>
 </Layout>

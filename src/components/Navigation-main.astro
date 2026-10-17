@@ -12,3 +12,12 @@ console.log(navMain);
 		<li><a href={item.href}>{item.name}</a></li>
 	))}
 </ul>
+
+
+<script>
+	console.log("Navigation Main component loaded");
+	const currentURL = new URL(window.location.href);
+	const pathName = currentURL.pathname;
+	console.log("Current URL:", currentURL);
+	console.log("Path Name:", pathName);
+</script>

@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+
+@layer base {
+    h1 {
+        @apply text-4xl font-bold mb-2 mt-1;
+    }
+}
+
+
+@layer components {
+    .card {
+        @apply bg-gray-100 shadow-md rounded-lg p-8;
+    }
+}
