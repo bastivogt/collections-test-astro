@@ -19,9 +19,18 @@ const posts = defineCollection({
 });
 
 
+// const members = defineCollection({
+//   loader: file('./src/content/members/members.json' ),
+
+// });
+
 const members = defineCollection({
   loader: file('./src/content/members/members.json' ),
-
+  schema: z.object({
+    id: z.int(),
+    name: z.string(),
+    birthday: z.coerce.date(),
+  }),
 });
 
 
