@@ -12,7 +12,7 @@ console.log(posts);
         <ul>
             {posts.map((post) => (
                 <li>
-                    <a href={`/posts/${post.id}`}>{post.data.title} ({getFormattedDate(new Date(post.data.date))})</a>
+                    <a href={`/posts/${post.id}/`}>{post.data.title} ({getFormattedDate(new Date(post.data.date))})</a>
                 </li>
             ))}
         </ul>

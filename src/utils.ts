@@ -1,13 +1,18 @@
+// export function isActiveLink(pathname: string, href: string): boolean {
+//     if(pathname !== "/" && href !== "/") {
+//         if (pathname.indexOf(href.slice(1)) != -1) {
+//             return true;
+//         }
+//     }else if(pathname === "/" && href === "/"){
+//         return true;
+//     }
+//     return false;
+// }
+
 export function isActiveLink(pathname: string, href: string): boolean {
-    if(pathname !== "/" && href !== "/") {
-        if (pathname.indexOf(href.slice(1)) != -1) {
-            return true;
-        }
-    }else if(pathname === "/" && href === "/"){
-        return true;
-    }
-    return false;
-}
+
+		return pathname === href;
+	}
 
 
 

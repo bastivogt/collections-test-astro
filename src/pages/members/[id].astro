@@ -17,5 +17,5 @@ const { member } = Astro.props;
 <Layout title={member.data.name} description={`Details for ${member.data.name}`}>
   <h1>{member.data.name}</h1>
   <p>Birthday: {getFormattedDate(new Date(member.data.birthday))}</p>
-  <p><a href="/members">Back to Members</a></p>
+  <p><a href="/members/">Back to Members</a></p>
 </Layout>

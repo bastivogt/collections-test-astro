@@ -1,5 +1,10 @@
 ---
 import { NAV } from "./../constants";
+import { isActiveLink } from "./../utils";
+
+const pathname = new URL(Astro.url).pathname;
+
+
 
 
 const navMain = NAV.filter((item) => item.type === "MAIN");
@@ -7,17 +12,34 @@ console.log(navMain);
 ---
 <h1>Navigation Main</h1>
 
-<ul>
-	{navMain.map((item) => (
-		<li><a href={item.href}>{item.name}</a></li>
-	))}
-</ul>
+<nav class="navigation-main">
+	<ul>
+		{navMain.map((item) => (
+			<li class="nav-item"><a class:list={['nav-link', { active: isActiveLink(pathname, item.href) }]} href={item.href}>{item.name}</a></li>
+		))}
+	</ul>
+
+</nav>
+
+<style>
+	.navigation-main .nav-link.active {
+		font-weight: bold;
+	}
+</style>
 
 
 <script>
-	console.log("Navigation Main component loaded");
-	const currentURL = new URL(window.location.href);
-	const pathName = currentURL.pathname;
-	console.log("Current URL:", currentURL);
-	console.log("Path Name:", pathName);
+
+	// import { isActiveLink } from "./../utils";
+
+	// const pathname = new URL(window.location.href).pathname;
+
+	// const navLinks = document.querySelectorAll('.nav-link');
+	// navLinks.forEach((link) => {
+	// 	const href = link.getAttribute('href');
+	// 	if (href && isActiveLink(pathname, href)) {
+	// 		link.classList.add('active');
+			
+	// 	}
+	// });
 </script>
